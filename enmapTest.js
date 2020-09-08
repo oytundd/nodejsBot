@@ -4,18 +4,10 @@ const myEnmap = new Enmap({ name: 'test' });
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const reply = require('./commands/reply');
+const {guildsDb} = require("./db.js");
 
 
-const guildArray = [ '133503007366053888', '420960021476802561', '704783059999784980' ];
-let guildId;
-
-console.log(myEnmap);
-// let guildInt;
-// let name = "test";
-
-
-// console.log(myEnmap);
-// myEnmap.destroy();
+console.log(guildsDb);
 /*
 const serverID = {
     emoteCounter :{

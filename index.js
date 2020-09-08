@@ -40,7 +40,7 @@ client.once('ready', () => {
 			guildsDb.set(guildId.toString(),guildName,'name');
 		}
 	}
-	console.log(guildsDb);
+	console.log("Live in "+ guildidArr.length +" servers.");
 });
 
 client.on('message', message => {
