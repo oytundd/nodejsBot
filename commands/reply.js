@@ -22,7 +22,6 @@ module.exports = {
 							message.channel.send("Reply added successfully.")
 						}
 					}
-					console.log(guildsDb);
 					break;	
 				case "del":
 					if(!guildsDb.has(guildId,`replies.${args[1]}`)){
