@@ -8,6 +8,10 @@ const {guildsDb} = require("./db.js");
 
 
 console.log(guildsDb);
+
+if(guildsDb.has('133503007366053888', 'replies.man')){
+    console.log("true");
+}
 /*
 const serverID = {
     emoteCounter :{

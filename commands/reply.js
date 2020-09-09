@@ -13,11 +13,27 @@ module.exports = {
 			let guildId = message.guild.id.toString();
 			switch(args[0]){
 				case "add":
-					guildsDb.set(guildId,args[2],`replies.${args[1]}`)
+					if(guildsDb.has(guildId,`replies.${args[1]}`)){
+						message.channel.send("Reply already exists.")
+					}
+					else{
+						guildsDb.set(guildId,args[2],`replies.${args[1]}`)
+						if(guildsDb.has(guildId,`replies.${args[1]}`)){
+							message.channel.send("Reply added successfully.")
+						}
+					}
 					console.log(guildsDb);
 					break;	
 				case "del":
-					guildsDb.delete(guildId,`replies.${args[1]}`);
+					if(!guildsDb.has(guildId,`replies.${args[1]}`)){
+						message.channel.send("Reply does not exist.")
+					}
+					else{
+						guildsDb.delete(guildId,`replies.${args[1]}`);
+						if(!guildsDb.has(guildId,`replies.${args[1]}`)){
+							message.channel.send("Reply deleted successfully.")
+						}
+					}
 					break;
 				case "list": 
 					let counterObj = guildsDb.get(guildId, 'replies');
