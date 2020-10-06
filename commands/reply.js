@@ -6,7 +6,7 @@ const {guildsDb} = require("../db.js");
 
 module.exports = {
 	name: 'reply',
-	description: 'Add auto reply.',
+	description: 'Add,delete,list auto reply.',
 	args: true,
 	execute(message, args) {
 		if(message.author.id == owner){
@@ -35,7 +35,7 @@ module.exports = {
 					}
 					break;
 				case "list": 
-					let counterObj = guildsDb.get(guildId, 'replies');
+					let counterObj = guildsDb.get(guildId,'replies');
 					let guildName = guildsDb.get(guildId,'name');
                     const embedList = new Discord.MessageEmbed()
                         embedList.setColor('#0099ff')

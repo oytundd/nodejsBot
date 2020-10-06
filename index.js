@@ -48,13 +48,18 @@ client.on('message', message => {
 	let messageStr = message.content;
 	let messageGuildid = message.guild.id.toString();
 	if(guildsDb.has(messageGuildid,`replies.${messageStr}`)){
-		message.channel.send(guildsDb.get(messageGuildid,`replies.${messageStr}`));
-}
+			message.channel.send(guildsDb.get(messageGuildid,`replies.${messageStr}`));
+	}
 
 	if (!message.content.startsWith(prefix)) return;
 
 	const tempArgs = message.content.slice(prefix.length).trim() //.split(/ +/);
-	const args = tempArgs.match(/"[^"]*"|\S+/g).map(m => m.slice(0, 1) === '"'? m.slice(1, -1): m);
+	try{
+		const args = tempArgs.match(/"[^"]*"|\S+/g).map(m => m.slice(0, 1) === '"'? m.slice(1, -1): m);
+	}catch(err){
+		console.log(err +"\nError triggering message:"+ message.content);
+	}
+
 	const commandName = args.shift().toLowerCase();
 
 	const command = client.commands.get(commandName)
