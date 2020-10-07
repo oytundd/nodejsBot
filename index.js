@@ -56,9 +56,7 @@ client.on('message', message => {
 	const tempArgs = message.content.slice(prefix.length).trim() //.split(/ +/);
 	try{
 		const args = tempArgs.match(/"[^"]*"|\S+/g).map(m => m.slice(0, 1) === '"'? m.slice(1, -1): m);
-	}catch(err){
-		console.log(err +"\nError triggering message:"+ message.content);
-	}
+	
 
 	const commandName = args.shift().toLowerCase();
 
@@ -107,6 +105,9 @@ client.on('message', message => {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
+}catch(err){
+	console.log(err +"\nError triggering message:"+ message.content);
+}
 });
 
 client.login(token);
