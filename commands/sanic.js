@@ -5,7 +5,7 @@ var gis = require('g-i-s');
 module.exports = {
   name: 'sanic',
   execute(message){
-fs.readFile('C:/Users/oytun/Desktop/nodejsBot/data/us.txt', function(err, data) {
+fs.readFile('../data/us.txt', function(err, data) {
     if(err) throw err;
     let array = data.toString().split("\r\n");
     let randNum = Math.floor(Math.random() * array.length);
