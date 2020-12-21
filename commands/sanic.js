@@ -7,7 +7,7 @@ module.exports = {
   execute(message){
 fs.readFile('data/us.txt', function(err, data) {
     if(err) throw err;
-    let array = data.toString().split("\r\n");
+    let array = data.toString().split("\n");
     let randNum = Math.floor(Math.random() * array.length);
     let randName = array[randNum];
     let ADDITION = " the hedgehog";
