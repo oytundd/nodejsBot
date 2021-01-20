@@ -10,16 +10,26 @@ module.exports = {
       if(args[0] >= 0.3 &&  args[0] <= 2){
         let num = args[0];
         num = Number(num).toFixed(1);
-        let url = "||https://thisanimedoesnotexist.ai/results/psi-"+num+"/seed"+randInt+".png||";
-        message.channel.send(url);
+        let url = "https://thisanimedoesnotexist.ai/results/psi-"+num+"/seed"+randInt+".png";
+        message.channel.send({
+          files: [{
+             attachment: url,
+             name: "SPOILER_FILE.jpg"
+          }]
+       });
       }
       else{
         message.channel.send("Please enter a value between 0.3 and 2 for creativity value.");
       }
     }
     else{
-      let url = "||https://thisanimedoesnotexist.ai/results/psi-2.0/seed"+randInt+".png||";
-      message.channel.send(url);
+      let url = "https://thisanimedoesnotexist.ai/results/psi-2.0/seed"+randInt+".png";
+      message.channel.send({
+        files: [{
+           attachment: url,
+           name: "SPOILER_FILE.jpg"
+        }]
+     });
     }
 
 
