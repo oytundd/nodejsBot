@@ -11,10 +11,10 @@ module.exports = {
         let num = args[0];
         num = Number(num).toFixed(1);
         let url = "https://thisanimedoesnotexist.ai/results/psi-"+num+"/seed"+randInt+".png";
-        message.channel.send({
+        message.channel.send("Image provided by thisanimedoesnotexist.ai, might be NSFW:",{
           files: [{
              attachment: url,
-             name: "SPOILER_FILE.jpg"
+             name: "SPOILER_FILE.jpg",
           }]
        });
       }
@@ -24,10 +24,11 @@ module.exports = {
     }
     else{
       let url = "https://thisanimedoesnotexist.ai/results/psi-2.0/seed"+randInt+".png";
-      message.channel.send({
+      message.channel.send("Image provided by thisanimedoesnotexist.ai, might be NSFW.",{
         files: [{
            attachment: url,
-           name: "SPOILER_FILE.jpg"
+           name: "SPOILER_FILE.jpg",
+           content:"Image provided by thisanimedoesnotexist.ai, might be NSFW:"
         }]
      });
     }
