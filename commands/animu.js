@@ -1,9 +1,10 @@
 const Discord = require('discord.js');
 
-
+let descriptorMsg = "Image provided by thisanimedoesnotexist.ai supply a value between 0.3 and 2 to customize creativity level, default is 2, might be NSFW:"
 module.exports = {
   name: 'animu',
   description: 'Get a random ai generated anime picture from thisanimedoesnotexist.ai, enter a value between 0.3 and 2 for creativity value, default is 2',
+
   execute(message,args){
     randInt = Math.floor(Math.random()*9999)+1000;
     if(args[0] != undefined){
@@ -11,7 +12,7 @@ module.exports = {
         let num = args[0];
         num = Number(num).toFixed(1);
         let url = "https://thisanimedoesnotexist.ai/results/psi-"+num+"/seed"+randInt+".png";
-        message.channel.send("Image provided by thisanimedoesnotexist.ai, might be NSFW:",{
+        message.channel.send(descriptorMsg,{
           files: [{
              attachment: url,
              name: "SPOILER_FILE.jpg",
@@ -24,7 +25,7 @@ module.exports = {
     }
     else{
       let url = "https://thisanimedoesnotexist.ai/results/psi-2.0/seed"+randInt+".png";
-      message.channel.send("Image provided by thisanimedoesnotexist.ai, might be NSFW:",{
+      message.channel.send(descriptorMsg,{
         files: [{
            attachment: url,
            name: "SPOILER_FILE.jpg",
