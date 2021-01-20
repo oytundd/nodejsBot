@@ -24,7 +24,7 @@ module.exports = {
     }
     else{
       let url = "https://thisanimedoesnotexist.ai/results/psi-2.0/seed"+randInt+".png";
-      message.channel.send("Image provided by thisanimedoesnotexist.ai, might be NSFW.",{
+      message.channel.send("Image provided by thisanimedoesnotexist.ai, might be NSFW:",{
         files: [{
            attachment: url,
            name: "SPOILER_FILE.jpg",
