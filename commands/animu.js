@@ -6,7 +6,7 @@ module.exports = {
   description: 'Get a random ai generated anime picture from thisanimedoesnotexist.ai, enter a value between 0.3 and 2 for creativity value, default is 2',
 
   execute(message,args){
-    randInt = Math.floor(Math.random()*9999)+1000;
+    randInt = Math.floor(Math.random()*99999)+10000;
     if(args[0] != undefined){
       if(args[0] >= 0.3 &&  args[0] <= 2){
         let num = args[0];
